@@ -3,13 +3,11 @@ html
         title=title
     body
         a(href="/")="HOME"
-        a(href="/hola")="CREAR"
+        a(href="/formulario")="GUARDAR FAVORITOS"
         h1="Guarda tus películas preferidas"
         br 
-        form(action="/api/films" method="post")
-            p="Nombre"
-            input(type="text",  id="name")
-            p="Apellido"
-            input(type="text",  id="surname")
-            br
-            input(type="submit", value="GUARDAR PELÍCULA" id="buttonSave")
+        form(action="/exito" method="post")
+            p="PELICULA"
+            input(type="text"  id="film" name="film")
+            input(type="submit" value="GUARDAR PELÍCULA" id="buttonSave")
+        script(src="/saveFilm.js")

@@ -1,13 +1,13 @@
 html
     head
         title=title
-        link(rel='stylesheet' type='text/css' href='css/style.css')
+        link(rel='stylesheet' type='text/css' href='./style.css')
     body
         a(href="/")="HOME"
-        a(href="/hola")="CREAR"
-        h1=message
+        a(href="/formulario")="GUARDAR FAVORITOS"
+        h1#lin=message
         input(type="submit", value="PELÍCULA BUSCADA" id="buttonSearch")
         input(type="text",  id="movSearch")
         br
        
-        script(src="/script.js")
+        script(src="./script.js")

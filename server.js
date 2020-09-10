@@ -1,30 +1,15 @@
-// Ejercicio API REST:
-// API de pelis:
-// http://www.omdbapi.com/
-// [GET] dame una pelicula por titulo. Devuelve JSON. Ruta: api/films/:titulo
-// Para tus favoritas( fakear BBDD con LocalStorage):
-// [POST] crea una pelicula y guarda. Devuelve un status 200. Ruta: api/films
-// [GET] Dame todas las peliculas guardadas. Devuelve un array de JSON. Ruta: /api/films
-// [DELETE] borra una pelicula api/films
-// [PUT] actualiza una peli guardada en LocalStorage api/films/:id
-// Parte Web:
-// - Crear home.pug, film.pug
-// [GET] Home de la app. Debe mostrar home.pug "/" o "/films"
-// [GET] Te muestra en HTML detalles de una peli por título. Debe mostrar film.pug   /films/:titulo
-// [GET] Muestra formulario HTML para crear nueva película. Cuando envíes formulario debe hacer un POST. Debe mostrar formulario.pug  Ruta: /films/create
-// Si la ruta no existe, se debe devolver 404 Not
-
 const port = 3000;
 const express = require("express");
 const fetch = require("node-fetch");
-const bodyParser=require("body-parser");
+const bodyParser = require("body-parser");
 const app = express();
 const apikey = "ca4abc94";
 let titulo = "gladiator";
 
+
 // Middleware
-app.use(express.static("public"));
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.static("public"));
 
 // Motor de vista
 app.set("view engine", "./views"); //De donde lee el pug
@@ -87,22 +72,25 @@ app.get("/api/films/:titulo", (req, res) => {
     });
 });
 
-app.post("/formulario", (req, res)=>{
-  console.log(req.body)
-  res
-  .status(200)
-  .json({mensaje:`Hola, ${req.body.name}`})
+// PAGINA DE FORMULARIO
+app.get("/formulario", (req, res) => {
+  res.status(200).render("form", { title: "Formulario" });
 });
 
-
-app.get("/formulario", (req,res)=>{
-  res.status(200).render("form", {title:"Formulario"})
+app.post("/exito", (req, res) => {
+  // console.log("HOla"+req.body.film)
+  res.status(200).render("exito", {
+    title: "Éxito",
+    message: "Bienvenido a la página de películas",
+  });
 });
+// .json({mensaje:"HOlita Json"+req.body.film})});
 
 app.get("*", (req, res) => {
   res.status(404).render("error", { title: "Error" });
 });
 
+// DEFINICIÓN DEL PUERTO AL QUE TIENEN QUE ATENDER
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`);
 });
