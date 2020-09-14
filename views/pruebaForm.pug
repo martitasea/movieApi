@@ -1,0 +1,44 @@
+html
+    head
+        title=title
+        link(rel='stylesheet' type='text/css' href='./css/reset.css')
+        link(rel='stylesheet' type='text/css' href='./css/style.css')
+        link(rel='icon' type='image/png' href="../img/camera.png")
+    body
+        header#header
+            div#headerTit
+                img#logo(src="./img/camera.png", alt="camera")
+                h1.fontPix="Pixel Movie"
+            nav#header
+                a(href="/" id="butHome" class="but" class="fontSecond")="Home"
+                a(href="/formulario" id="butSave" class="but" class="fontSecond")="Guardar en Favoritos"
+        div#sheet
+            h2#filmTit.fontPix="Formulario"
+            form#smallFilmForm(action="/exito" method="post")
+                div.catFilmForm
+                    p.fontSecondBold.key="Título"
+                    input.form(type="text" name="film" id="film")
+                div.catFilmForm
+                    p.fontSecondBold.key="Director"
+                    input.form(type="text" name="director" id="director")
+                div.catFilmForm
+                    p.fontSecondBold.key="Fecha"
+                    input.form(type="date" name="released" id="released")
+                div.catFilmForm
+                    p.fontSecondBold.key="Duración"
+                    input.form(type="text" name="runtime" id="runtime")
+                div.catFilmForm
+                    p.fontSecondBold.key="Puntuación"
+                    input.form(type="text" name="score" id="score")
+                div.catFilmForm
+                    p.fontSecondBold.key="Carátula"
+                    input.form(type="text" name="poster" id="poster")
+                div#iconsHome
+                    img(src="./img/eye.png" alt="watched" id="eye")
+                    input(type="checkbox" name="yes" id="watched")
+                    img(src="./img/loved.png" alt="loved" id="heart")
+                    input(type="checkbox" name="yes" id="liked")
+                input(type="submit" id="buttonSave" value="GUARDAR")            
+    //- footer.fontSecond="Made by Marta Pulido 2020"
+script(src="scriptForm.js" defer)
+

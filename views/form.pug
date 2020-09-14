@@ -1,13 +1,20 @@
 html
     head
         title=title
+        link(rel='stylesheet' type='text/css' href='./style.css')
+        link(rel='icon' type='image/png' href="movie-camera.svg")
     body
         a(href="/")="HOME"
         a(href="/formulario")="GUARDAR FAVORITOS"
         h1="Guarda tus películas preferidas"
         br 
         form(action="/exito" method="post")
-            p="PELICULA"
+            p="GUARDAR PELICULA"
+            p="Título"
             input(type="text"  id="film" name="film")
-            input(type="submit" value="GUARDAR PELÍCULA" id="buttonSave")
-        script(src="/saveFilm.js")
+            p="Comentarios"
+            input(type="text" id="coments")
+            br
+            input(type="submit" value="GUARDAR" id="buttonSave")
+        script(src="/scriptForm.js")
+            

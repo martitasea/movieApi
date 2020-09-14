@@ -6,7 +6,6 @@ const app = express();
 const apikey = "ca4abc94";
 let titulo = "gladiator";
 
-
 // Middleware
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
@@ -17,80 +16,84 @@ app.set("view engine", "pug"); //Definimos el motor de vista
 
 //Rutas
 app.get("/", (req, res) => {
-  res.render("home", {
-    title: "Films",
-    message: "Bienvenido a la página de películas",
+  res.render("pruebaHome", {
+    title: "Pixel Movie",
   });
 });
 
 app.get("/films", (req, res) => {
-  res.render("home", {
-    title: "Films",
-    message: "Bienvenido a la página de películas",
+  res.render("pruebaHome", {
+    title: "Pixel Movie",
   });
 });
 
 app.get("/films/:titulo", (req, res) => {
   titulo = req.params.titulo;
-  fetch(`http://www.omdbapi.com/?t=${titulo}&apikey=${apikey}`)
+  fetch(`http://www.omdbapi.com/?t=${titulo}&apikey=ca4abc94`)
     .then(function (response) {
       return response.json();
     })
     .then(function (myJson) {
-      res.render("film", {
-        title: myJson.Title,
-        pelicula: myJson.Title,
-        fecha: myJson.Year,
-        actores: myJson.Actors,
+      res.render("pruebaFilm", {
+        film: myJson.Title,
+        poster: myJson.Poster,
         director: myJson.Director,
-        premios: myJson.Awards,
-        ruta: myJson.Poster,
+        released: myJson.Released,
+        runtime: myJson.Runtime,
+        actors: myJson.Actors,
+        score: myJson.imdbRating,
+        plot: myJson.Plot,
       });
     });
 });
-
-app.get("/api/films", (req, res) => {
-  res.status(200).send("Bienvenido a mi película");
-});
-
-app.get("/api/films/:titulo", (req, res) => {
-  titulo = req.params.title;
-  fetch(`http://www.omdbapi.com/?t=${titulo}&apikey=${apikey}`)
-    .thes(function (response) {
-      return response.json();
-    })
-    .then(function (myJson) {
-      res.send(
-        "Me has preguntado por la película " +
-          myJson.Title +
-          ". El director es " +
-          myJson.Director +
-          ". El año es " +
-          myJson.Year +
-          "."
-      );
-    });
-});
-
-// PAGINA DE FORMULARIO
+/* ----------------------------------------------------------------------
+---------------------------PAGINA DE FORMULARIO--------------------------
+---------------------------------------------------------------------- */
 app.get("/formulario", (req, res) => {
-  res.status(200).render("form", { title: "Formulario" });
+  res.status(200).render("pruebaForm", { title: "Formulario" });
 });
 
 app.post("/exito", (req, res) => {
-  // console.log("HOla"+req.body.film)
-  res.status(200).render("exito", {
-    title: "Éxito",
-    message: "Bienvenido a la página de películas",
-  });
+  console.log("hola")
+  res.status(200).redirect("/");
 });
-// .json({mensaje:"HOlita Json"+req.body.film})});
+/* ----------------------------------------------------------------------
+-------------------------ENRUTAMIENTO CON LA API-------------------------
+---------------------------------------------------------------------- */
+// app.get("/api/films", (req, res) => {
+//   res.status(200).send("Bienvenido a mi película");
+// });
 
+// app.get("/api/films/:titulo", (req, res) => {
+//   titulo = req.params.title;
+//   fetch(`http://www.omdbapi.com/?t=${titulo}&apikey=${apikey}`)
+//     .thes(function (response) {
+//       return response.json();
+//     })
+//     .then(function (myJson) {
+//       res.send(
+//         "Me has preguntado por la película " +
+//           myJson.Title +
+//           ". El director es " +
+//           myJson.Director +
+//           ". El año es " +
+//           myJson.Year +
+//           "."
+//       );
+//     });
+// });
+/* ----------------------------------------------------------------------
+------------------------TODAS LAS DEMÁS PÁGINAS--------------------------
+---------------------------------------------------------------------- */
 app.get("*", (req, res) => {
   res.status(404).render("error", { title: "Error" });
 });
 
-// DEFINICIÓN DEL PUERTO AL QUE TIENEN QUE ATENDER
+/* ----------------------------------------------------------------------
+---------------DEFINICIÓN DEL PUERTO AL QUE TIENEN QUE ATENDER-----------
+---------------------------------------------------------------------- */
 app.listen(port, () => {
-  console.log(`Example app listening at http://localhost:${port}`);
+  console.log(
+    `Tu servidor local está en la siguiente ruta http://localhost:${port}`
+  );
 });

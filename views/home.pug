@@ -2,6 +2,7 @@ html
     head
         title=title
         link(rel='stylesheet' type='text/css' href='./style.css')
+        link(rel='icon' type='image/png' href="movie-camera.svg")
     body
         a(href="/")="HOME"
         a(href="/formulario")="GUARDAR FAVORITOS"
@@ -9,5 +10,6 @@ html
         input(type="submit", value="PELÍCULA BUSCADA" id="buttonSearch")
         input(type="text",  id="movSearch")
         br
-       
-        script(src="./script.js")
+        h2#lin="Tus películas favoritas"
+        div#peliFav
+        script(src="scriptHome.js" defer)
