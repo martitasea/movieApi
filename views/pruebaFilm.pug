@@ -2,14 +2,14 @@ html
     head
         title=title
         //- link(rel='stylesheet' type='text/css' href='./css/reset.css')
-        link(rel='stylesheet' type='text/css' href='../css/style.css')
-        link(rel='icon' type='image/png' href="../img/camera.png")
-        script(src="scriptHome.js" defer)
+        link(rel='stylesheet' type='text/css' href='css/style.css')
+        link(rel='icon' type='image/png' href="img/camera.png")
+        
     body
         header#header
             div#headerTit
-                img#logo(src="../img/camera.png", alt="camera")
-                h1.fontPix="Pixel Movie"
+                img#logo(src="./img/camera.png", alt="camera")
+                h1.fontPix=title
             nav#header
                 a(href="/" id="butHome" class="but" class="fontSecond")="Home"
                 a(href="/formulario" id="butSave" class="but" class="fontSecond")="Guardar en Favoritos"
@@ -39,4 +39,5 @@ html
             //- a(href="#" id="butEditS" class="but fontSecond")="Editar"
             a(href="#" id="butDeleteS" class="but fontSecond")="Guardar en favoritos"
             //- a(href="#" id="butSaveS" class="but fontSecond")="Guardar en favoritos"
-    footer.fontSecond="Made by Marta Pulido 2020"
+        footer.fontSecond="Made by Marta Pulido 2020"
+        script(src="scriptHome.js" )

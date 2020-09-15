@@ -16,29 +16,30 @@ html
             h2#filmTit.fontPix="Formulario"
             form#smallFilmForm(action="/exito" method="post")
                 div.catFilmForm
-                    p.fontSecondBold.key="Título"
+                    p(class="fontSecondBold key")="Título"
                     input.form(type="text" name="film" id="film")
                 div.catFilmForm
-                    p.fontSecondBold.key="Director"
+                    p(class="fontSecondBold key")="Director"
                     input.form(type="text" name="director" id="director")
                 div.catFilmForm
-                    p.fontSecondBold.key="Fecha"
+                    p(class="fontSecondBold key")="Fecha"
                     input.form(type="date" name="released" id="released")
                 div.catFilmForm
-                    p.fontSecondBold.key="Duración"
+                    p(class="fontSecondBold key")="Duración"
                     input.form(type="text" name="runtime" id="runtime")
                 div.catFilmForm
-                    p.fontSecondBold.key="Puntuación"
-                    input.form(type="text" name="score" id="score")
+                    p(class="fontSecondBold key")="Carátula"
+                    input.form(type="url" name="poster" id="poster")
                 div.catFilmForm
-                    p.fontSecondBold.key="Carátula"
-                    input.form(type="text" name="poster" id="poster")
+                    p(class="fontSecondBold key")="Puntuación"
+                    input.form(type="text" name="score" id="score")
                 div#iconsHome
                     img(src="./img/eye.png" alt="watched" id="eye")
                     input(type="checkbox" name="yes" id="watched")
                     img(src="./img/loved.png" alt="loved" id="heart")
                     input(type="checkbox" name="yes" id="liked")
-                input(type="submit" id="buttonSave" value="GUARDAR")            
-    //- footer.fontSecond="Made by Marta Pulido 2020"
+            nav#navSheet
+                a(href="/" id="buttonSave" class="but fontSecond")="Guardar en Favoritos"
+        footer.fontSecond="Made by Marta Pulido 2020"
 script(src="scriptForm.js" defer)
 

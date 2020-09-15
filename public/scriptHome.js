@@ -32,6 +32,15 @@ function deleteFilmDetails(titulo) {
 // ----------------------------------------------------------------------
 // EDITAR LOS CAMPOS DE FAVORITOS ---------------------------------------
 // ----------------------------------------------------------------------
+function editFilmDetails(titulo){
+  let filmsSaved = JSON.parse(localStorage.getItem("filmsStored"));
+  for (let i = 0; i < filmsSaved.length; i++){
+  if(filmsSaved[i].titulo==titulo){
+  console.log("hola");
+  location.replace("films/edit/"+i+"?titulo="+filmsSaved[i].titulo+"&director="+filmsSaved[i].director)
+}}
+};
+
 
 // ----------------------------------------------------------------------
 // MOSTRAR DETALLES DE FAVORITOS ---------------------------------------
@@ -41,16 +50,15 @@ function seeFilmDetails(titulo){
   for (let i = 0; i < filmsSaved.length; i++){
   if(filmsSaved[i].titulo==titulo){
   console.log("hola");
-  // location.replace("/films/"+filmsSaved[i].titulo); //Coge los detalles del fetch
-  location.replace("films/detalle/"+i+"?titulo="+filmsSaved[i].titulo+"&director="+filmsSaved[i].director)
+  location.replace("films/detail/"+i+"?titulo="+filmsSaved[i].titulo+"&director="+filmsSaved[i].director)
 }}
 };
+// location.replace("/films/"+filmsSaved[i].titulo); //Coge los detalles del fetch
 
 // ----------------------------------------------------------------------
 // ESCRIBIR EN LA HOME LAS PELÍCULAS DE LOCALSTORAGE---------------------
 // ----------------------------------------------------------------------
 let saved = JSON.parse(localStorage.getItem("filmsStored"));
-
 for (let i = 0; i < saved.length; i++) {
   let card = `
   <h2 id="filmTit" class="fontPix">${saved[i].titulo}</h2>
@@ -87,4 +95,4 @@ for (let i = 0; i < saved.length; i++) {
   </nav>
   `;
   document.getElementById("sheet").innerHTML += card;
-}
+};

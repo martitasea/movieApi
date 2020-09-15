@@ -54,6 +54,7 @@
 }
 html {
   color: var(--main-color);
+  margin:0;
 }
 /* ----------------------------------------------------------------------
 ----------------------------------HEADER---------------------------------
@@ -69,12 +70,11 @@ div#headerTit {
   border-radius: 10px;
   display: flex;
   flex-direction: row;
-  background-color: white;
+  background-color:white;
   justify-content: space-evenly;
   align-items: center;
   z-index: 20;
   pointer-events: none;
-  
 }
 #logo {
   height: 80px;
@@ -99,7 +99,6 @@ a#butSave {
   z-index: 1;
   text-decoration: none;
   border-radius: 0 0 10px 10px;
-  
 }
 a#butHome:hover,
 a#butSave:hover {
@@ -112,6 +111,7 @@ div#search {
   display: flex;
   flex-direction: column;
   margin-bottom: 2vh;
+  margin-top: 5vh;
 }
 div#search p {
   margin: 2vh 0 0 2vw;
@@ -140,7 +140,7 @@ button.fontSecond:hover {
   color: white;
 }
 /* ----------------------------------------------------------------------
-----------------------------------SHEET----------------------------------
+--------------------------------SHEET FILM-------------------------------
 ---------------------------------------------------------------------- */
 div#sheetPlusNav {
   display: flex;
@@ -190,13 +190,6 @@ div#wordsFilm {
   display: flex;
   flex-direction: row;
 }
-form#smallFilmForm {
-  border: 1px solid var(--main-color);
-  border-radius: 0px 0px 10px 10px;
-  display: flex;
-  flex-direction: column;
-  padding: 1vw 0 1vw 1vw;
-}
 #poster {
   height: 300px;
   width: auto;
@@ -211,40 +204,31 @@ div.catFilmHome {
   display: flex;
   flex-direction: row;
 }
+p.fontSecondBold.key {
+  width: 25vw;
+}
 div#about {
   display: flex;
   flex-direction: column;
   margin-bottom: 1vh;
+  font-size: var(--font-size-regular);
 }
 .value {
   font-size: var(--font-size-regular);
+  color: red;
 }
 .key {
   font-size: var(--font-size-regular);
   width: 20vw;
 }
-/* p.fontSecond.value#reparto {
-  width: 20px;
-} */
 div#about p.fontSecond.value {
   font-size: var(--font-size-regular);
-}
-input.form {
-  border-style: dashed;
-  border-width: 0 0 1px 0;
-  width: 40vw;
-}
-input.form:active {
-  border-style: dashed;
-  border-width: 0 0 1px 0;
-  width: 40vw;
-  color: red;
 }
 div#iconsHome {
   display: flex;
   flex-direction: row;
   align-items: center;
-  margin-top: 5vw;
+  margin: 2vh 0  2vh 0;
 }
 #eye,
 #heart {
@@ -268,6 +252,7 @@ nav#navSheet {
   justify-content: space-between;
   margin: 0 0 8vw 0;
 }
+#buttonSave,
 #butEditS,
 #butDeleteS,
 #butDetailS {
@@ -282,10 +267,40 @@ nav#navSheet {
   border-radius: 0 0 10px 10px;
 }
 /* ----------------------------------------------------------------------
+------------------------------------FORM---------------------------------
+---------------------------------------------------------------------- */
+form#smallFilmForm {
+  border: 1px solid var(--main-color);
+  border-radius: 0px 0px 10px 10px;
+  display: flex;
+  flex-direction: column;
+  padding: 2vh 0 1vw 2vw;
+}
+div.catFilmForm {
+  display: flex;
+  flex-direction: row;
+  margin: 0.5vh 0;
+}
+input.form {
+  /* border-style: dashed; */
+  border-width: 0 0 0px 0;
+  width: 65vw;
+  background-color: rgb(240, 240, 240);
+  font-size: var(--font-size-regular-nav);
+  /* color: red; */
+}
+input.form:active {
+  border-style: dashed;
+  border-width: 0 0 1px 0;
+  width: 40vw;
+
+}
+
+/* ----------------------------------------------------------------------
 ---------------------------------FOOTER----------------------------------
 ---------------------------------------------------------------------- */
 footer {
-  font-size: var(--font-size-regular-nav);
+  font-size:30px;
   background-color: var(--main-color);
   color: white;
   text-align: center;
@@ -293,4 +308,5 @@ footer {
   position: fixed;
   bottom: 0;
   width: 100vw;
+  margin: 0;
 }

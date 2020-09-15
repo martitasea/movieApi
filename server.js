@@ -9,6 +9,9 @@ let titulo = "gladiator";
 // Middleware
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
+app.use("/films/:titulo", express.static(__dirname + "/public"));
+app.use("/films/detail/:i", express.static(__dirname + "/public"));
+app.use("/films/edit/:i", express.static(__dirname + "/public"));
 
 // Motor de vista
 app.set("view engine", "./views"); //De donde lee el pug
@@ -47,6 +50,30 @@ app.get("/films/:titulo", (req, res) => {
     });
 });
 /* ----------------------------------------------------------------------
+---------------------------PAGINA DE DETALLES----------------------------
+---------------------------------------------------------------------- */
+app.get("/films/detail/:id", (req, res) => {
+  // Films/detail/:i? Param1=xx&param2=yy
+  console.log(req.query.titulo)
+  res.status(200).render("pruebaFilm", {
+    film: req.query.titulo,
+    director: req.params.director,
+  });
+});
+
+/* ----------------------------------------------------------------------
+---------------------------PAGINA DE EDITAR------------------------------
+---------------------------------------------------------------------- */
+// app.get("/films/edit/:id", (req, res) => {
+//   // Films/detail/:i? Param1=xx&param2=yy
+//   console.log(req.query.titulo)
+//   res.status(200).render("pruebaForm", {
+//     film: req.query.titulo,
+//     director: req.params.director,
+//   });
+// });
+
+/* ----------------------------------------------------------------------
 ---------------------------PAGINA DE FORMULARIO--------------------------
 ---------------------------------------------------------------------- */
 app.get("/formulario", (req, res) => {
@@ -54,7 +81,7 @@ app.get("/formulario", (req, res) => {
 });
 
 app.post("/exito", (req, res) => {
-  console.log("hola")
+  console.log("hola");
   res.status(200).redirect("/");
 });
 /* ----------------------------------------------------------------------
