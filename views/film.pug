@@ -1,30 +1,43 @@
 html
     head
         title=title
-        link(rel='stylesheet' type='text/css' href='./style.css')
-        link(rel='icon' type='image/png' href="camera.png")
+        //- link(rel='stylesheet' type='text/css' href='./css/reset.css')
+        link(rel='stylesheet' type='text/css' href='css/style.css')
+        link(rel='icon' type='image/png' href="img/camera.png")
+        
     body
-        a(href="/")="HOME"
-        a(href="/formulario")="GUARDAR FAVORITOS"
-        h1=pelicula
-        p="AÑO "+fecha
-        p="DURACIÓN"+duracion
-        p="ACTORES "+actores
-        p="DIRECTOR "+director
-        p="PREMIOS "+premios
-        img(src=ruta)
-        p="¿Has visto la película?"
-        input(type="checkbox" name="yes" value="SI")
-        label(for="SI")="SI"
-        input(type="checkbox" name="yes" value="NO")
-        label(for="NO")="NO"
-        br
-        p="¿Te gustó?"
-        input#liked(type="checkbox" name="yes" value="SI")
-        label(for="SI")="SI"
-        input#watched(type="checkbox" name="yes" value="NO")
-        label(for="NO")="NO"
-        label(for="Comentarios")="Comentarios"
-        br
-        input(type="textarea"  id="coments" name="coments")
-        button#buttonSave3(href="/")="GUARDAR EN FAVORITOS"
+        header#header
+            div#headerTit
+                img#logo(src="./img/camera.png", alt="camera")
+                h1.fontPix="Pixel Movie"
+            nav#header
+                a(href="/" id="butHome" class="but" class="fontSecond")="Home"
+                a(href="/formulario" id="butSave" class="but" class="fontSecond")="Guardar en Favoritos"
+        div#sheet
+            h2#filmTit.fontPix=titulo
+            div#smallFilm
+                div#smallSup
+                    img#posterApi(src=poster, alt="Poster Film")
+                    div#detFilmHome
+                        div.catFilmHome
+                            p.fontSecondBold.key="Director"
+                            p.fontSecond.value=director
+                        div.catFilmHome
+                            p.fontSecondBold.key="Fecha"
+                            p.fontSecond.value=released
+                        div.catFilmHome
+                            p.fontSecondBold.key="Duración"
+                            p.fontSecond.value=runtime
+                        //- div.catFilmHome
+                        //-     p.fontSecondBold.key="Reparto"
+                        //-     p.fontSecond.value#reparto=actors
+                    div#scoreFilm.fontPix=score
+                div.catFilmHome#about
+                    p(class="key fontSecondBold")="Sinopsis"
+                    p(class="value fontSecond")=plot
+        nav#navSheet
+            //- a(href="#" id="butEditS" class="but fontSecond")="Editar"
+            a(href="#" id="butDeleteS" class="but fontSecond")="Guardar en favoritos"
+            //- a(href="#" id="butSaveS" class="but fontSecond")="Guardar en favoritos"
+        footer.fontSecond="Made by Marta Pulido 2020"
+        script(src="scriptHome.js" )

@@ -9,7 +9,7 @@ function saveFilmDetails() {
     : (filmsSaved = []);
 
   let newFilms = {
-    titulo: document.getElementById("film").value,
+    titulo: document.getElementById("titulo").value,
     director: document.getElementById("director").value,
     released: document.getElementById("released").value,
     runtime: document.getElementById("runtime").value,
@@ -19,6 +19,8 @@ function saveFilmDetails() {
     poster: document.getElementById("poster").value,
   };
 
+  // let position=getElementById("id")
+  // Hacer dos tipos de guardado, si ya existe en lS guardar por id, si no existe hacer un push
   
   filmsSaved.push(newFilms);
   localStorage.setItem("filmsStored", JSON.stringify(filmsSaved));

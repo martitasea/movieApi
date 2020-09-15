@@ -2,8 +2,8 @@
 --------------------------------VARIABLES--------------------------------
 ---------------------------------------------------------------------- */
 :root {
-  --main-color: rgb(44, 44, 44);
-  --main-color-hover: rgb(94, 93, 93);
+  --main-color: rgb(180, 98, 98);
+  --main-color-hover: rgb(195, 194, 194);
   --special-font: "pixel_arial_11regular";
   --regular-font: "apparata-lightuploaded_file";
   --bold-font: "apparata-bolduploaded_file";
@@ -54,7 +54,7 @@
 }
 html {
   color: var(--main-color);
-  margin:0;
+  margin: 0;
 }
 /* ----------------------------------------------------------------------
 ----------------------------------HEADER---------------------------------
@@ -70,7 +70,7 @@ div#headerTit {
   border-radius: 10px;
   display: flex;
   flex-direction: row;
-  background-color:white;
+  background-color: white;
   justify-content: space-evenly;
   align-items: center;
   z-index: 20;
@@ -91,7 +91,7 @@ nav#header {
 a#butHome,
 a#butSave {
   font-size: var(--font-size-regular-nav);
-  background-color: var(--main-color);
+  background-color: var(--main-color-hover);
   padding: 0 12vw;
   color: white;
   position: relative;
@@ -99,6 +99,7 @@ a#butSave {
   z-index: 1;
   text-decoration: none;
   border-radius: 0 0 10px 10px;
+  line-height: 4vh;
 }
 a#butHome:hover,
 a#butSave:hover {
@@ -124,23 +125,24 @@ div#search div {
 div#search button {
   height: auto;
   border: none;
-  background-color: rgb(184, 184, 184);
+  background-color: var(--main-color-hover);
   font-size: var(--font-size-regular-nav);
   padding: 1vh 0;
   border-radius: 10px;
   letter-spacing: 5px;
   margin: 0 2vw;
+  color: white;
 }
 input#movSearch {
   font-size: var(--font-size-regular);
   border: none;
   margin: 0 0 0 2vw;
 }
-button.fontSecond:hover {
+/* button.fontSecond:hover {
   color: white;
-}
+} */
 /* ----------------------------------------------------------------------
---------------------------------SHEET FILM-------------------------------
+--------------------------------HOME-------------------------------------
 ---------------------------------------------------------------------- */
 div#sheetPlusNav {
   display: flex;
@@ -160,19 +162,19 @@ h2#filmTit {
   color: white;
   padding: 1vw 0 1vw 3vw;
   letter-spacing: 0.75vw;
-  border-bottom: 1px solid var(--main-color);
+  border-bottom: 2px solid var(--main-color);
   background-color: var(--main-color);
   border-radius: 10px 10px 0px 0px;
 }
 div#smallFilm {
-  border: 1px solid var(--main-color);
+  border: 2px solid var(--main-color);
   border-radius: 0px 0px 10px 10px;
   display: flex;
   flex-direction: column;
   padding: 1vw 0 1vw 1vw;
 }
 div#smallFilmHome {
-  border: 1px solid var(--main-color);
+  border: 2px solid var(--main-color);
   border-radius: 0px 0px 10px 10px;
   display: flex;
   flex-direction: row;
@@ -190,15 +192,15 @@ div#wordsFilm {
   display: flex;
   flex-direction: row;
 }
-#poster {
-  height: 300px;
+#posterApi {
+  height: 250px;
   width: auto;
 }
 div#detFilmHome {
   display: flex;
   flex-direction: column;
-  margin: 0vw 0 1vw 1vw;
-  width: 70vw;
+  margin: 0vw 0 1vw 2vw;
+  width: 60vw;
 }
 div.catFilmHome {
   display: flex;
@@ -212,10 +214,11 @@ div#about {
   flex-direction: column;
   margin-bottom: 1vh;
   font-size: var(--font-size-regular);
+  margin-right: 2vw;
 }
 .value {
   font-size: var(--font-size-regular);
-  color: red;
+  color: var(--main-color);
 }
 .key {
   font-size: var(--font-size-regular);
@@ -223,12 +226,14 @@ div#about {
 }
 div#about p.fontSecond.value {
   font-size: var(--font-size-regular);
+  text-align: justify;
+  
 }
 div#iconsHome {
   display: flex;
   flex-direction: row;
   align-items: center;
-  margin: 2vh 0  2vh 0;
+  margin: 2vh 0 2vh 0;
 }
 #eye,
 #heart {
@@ -243,7 +248,7 @@ input#liked {
 }
 div#scoreFilm {
   margin-right: 2vw;
-  height: 5vh;
+  /* height: 5vh; */
   font-size: var(--font-size-pixel-score);
 }
 nav#navSheet {
@@ -257,20 +262,25 @@ nav#navSheet {
 #butDeleteS,
 #butDetailS {
   font-size: var(--font-size-regular-nav);
-  background-color: var(--main-color);
   color: white;
   padding: 0 9vw;
   text-decoration: none;
   position: relative;
   bottom: 0.3vh;
   z-index: 0;
+  background-color: var(--main-color-hover);
   border-radius: 0 0 10px 10px;
+  line-height: 4vh;
+}
+#butDeleteS{
+  line-height: 4vh;
+  margin-left: 2vw;
 }
 /* ----------------------------------------------------------------------
 ------------------------------------FORM---------------------------------
 ---------------------------------------------------------------------- */
 form#smallFilmForm {
-  border: 1px solid var(--main-color);
+  border: 2px solid var(--main-color);
   border-radius: 0px 0px 10px 10px;
   display: flex;
   flex-direction: column;
@@ -289,18 +299,24 @@ input.form {
   font-size: var(--font-size-regular-nav);
   /* color: red; */
 }
-input.form:active {
-  border-style: dashed;
-  border-width: 0 0 1px 0;
+input#score {
   width: 40vw;
-
+  /* background-color: yellow; */
 }
-
+input#runtime::after {
+  content: "min";
+}
+div#iconsForm {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: 2vh 0 2vh 25vw;
+}
 /* ----------------------------------------------------------------------
 ---------------------------------FOOTER----------------------------------
 ---------------------------------------------------------------------- */
 footer {
-  font-size:30px;
+  font-size: 30px;
   background-color: var(--main-color);
   color: white;
   text-align: center;

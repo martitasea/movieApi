@@ -19,13 +19,13 @@ app.set("view engine", "pug"); //Definimos el motor de vista
 
 //Rutas
 app.get("/", (req, res) => {
-  res.render("pruebaHome", {
+  res.render("Home", {
     title: "Pixel Movie",
   });
 });
 
 app.get("/films", (req, res) => {
-  res.render("pruebaHome", {
+  res.render("Home", {
     title: "Pixel Movie",
   });
 });
@@ -37,8 +37,8 @@ app.get("/films/:titulo", (req, res) => {
       return response.json();
     })
     .then(function (myJson) {
-      res.render("pruebaFilm", {
-        film: myJson.Title,
+      res.render("Film", {
+        titulo: myJson.Title,
         poster: myJson.Poster,
         director: myJson.Director,
         released: myJson.Released,
@@ -53,31 +53,45 @@ app.get("/films/:titulo", (req, res) => {
 ---------------------------PAGINA DE DETALLES----------------------------
 ---------------------------------------------------------------------- */
 app.get("/films/detail/:id", (req, res) => {
-  // Films/detail/:i? Param1=xx&param2=yy
   console.log(req.query.titulo)
-  res.status(200).render("pruebaFilm", {
-    film: req.query.titulo,
-    director: req.params.director,
+  console.log(req.query.director)
+  console.log(req.query.runtime)
+  res.status(200).render("Film", {
+    // titular: "Editar",
+    titulo: req.query.titulo,
+    director: req.query.director,
+    id:req.query.id,
+    released:req.query.released,
+    runtime: req.query.runtime,
+    poster:req.query.poster,
+    watched:req.query.watched,
+    liked:req.query.liked,
+    score:req.query.score
   });
 });
 
 /* ----------------------------------------------------------------------
 ---------------------------PAGINA DE EDITAR------------------------------
 ---------------------------------------------------------------------- */
-// app.get("/films/edit/:id", (req, res) => {
-//   // Films/detail/:i? Param1=xx&param2=yy
-//   console.log(req.query.titulo)
-//   res.status(200).render("pruebaForm", {
-//     film: req.query.titulo,
-//     director: req.params.director,
-//   });
-// });
+app.get("/films/edit/:id", (req, res) => {
+  res.status(200).render("Form", {
+    titulo: req.query.titulo,
+    director: req.query.director,
+    id:req.query.id,
+    released:req.query.released,
+    runtime: req.query.runtime,
+    poster:req.query.poster,
+    watched:req.query.watched,
+    liked:req.query.liked,
+    score:req.query.score
+  });
+});
 
 /* ----------------------------------------------------------------------
 ---------------------------PAGINA DE FORMULARIO--------------------------
 ---------------------------------------------------------------------- */
 app.get("/formulario", (req, res) => {
-  res.status(200).render("pruebaForm", { title: "Formulario" });
+  res.status(200).render("Form", { title: "Formulario" });
 });
 
 app.post("/exito", (req, res) => {
