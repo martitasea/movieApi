@@ -19,16 +19,12 @@ function saveFilmDetails() {
   };
 
   // Hacer dos tipos de guardado, si vengo de Editar, si vengo de Crear hacer un push
-
   let action = document.getElementById("filmTit");
   console.log("vamos al if");
   if (action.innerText == "Editar Película") {
     console.log("if pasado");
-
     let position = document.getElementById("id").innerText;
-
     filmsSaved[position] = newFilms;
-
     localStorage.setItem("filmsStored", JSON.stringify(filmsSaved));
   } else {
     console.log("estamosen el else");
