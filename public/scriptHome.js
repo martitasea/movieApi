@@ -38,7 +38,14 @@ function editFilmDetails(titulo){
   for (let i = 0; i < filmsSaved.length; i++){
   if(filmsSaved[i].titulo==titulo){
   console.log("hola");
-  location.replace("films/edit/"+i+"?titulo="+filmsSaved[i].titulo+"&director="+filmsSaved[i].director)
+  location.replace("films/edit/"+i+"?titulo="+filmsSaved[i].titulo+"&director="+filmsSaved[i].director
+  +"&released="+filmsSaved[i].released
+  +"&runtime="+filmsSaved[i].runtime
+  +"&poster="+filmsSaved[i].poster
+  +"&watched="+filmsSaved[i].watched
+  +"&liked="+filmsSaved[i].liked
+  +"&score="+filmsSaved[i].score
+  )
 }}
 };
 

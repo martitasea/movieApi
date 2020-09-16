@@ -13,8 +13,9 @@ html
                 a(href="/" id="butHome" class="but" class="fontSecond")="Home"
                 a(href="/formulario" id="butSave" class="but" class="fontSecond")="Guardar en Favoritos"
         div#sheet
-            h2#filmTit.fontPix="Formulario"
+            h2#filmTit.fontPix=action
             form#smallFilmForm(action="/exito" method="post")
+                p(class="fontSecondBold key" id="id")=id
                 div.catFilmForm
                     p(class="fontSecondBold key")="Título"
                     input.form(type="text" name="film" id="titulo" value=titulo)

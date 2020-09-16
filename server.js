@@ -53,9 +53,6 @@ app.get("/films/:titulo", (req, res) => {
 ---------------------------PAGINA DE DETALLES----------------------------
 ---------------------------------------------------------------------- */
 app.get("/films/detail/:id", (req, res) => {
-  console.log(req.query.titulo)
-  console.log(req.query.director)
-  console.log(req.query.runtime)
   res.status(200).render("Film", {
     // titular: "Editar",
     titulo: req.query.titulo,
@@ -75,9 +72,10 @@ app.get("/films/detail/:id", (req, res) => {
 ---------------------------------------------------------------------- */
 app.get("/films/edit/:id", (req, res) => {
   res.status(200).render("Form", {
+    id:req.params.id,
+    action:"Editar Película",
     titulo: req.query.titulo,
     director: req.query.director,
-    id:req.query.id,
     released:req.query.released,
     runtime: req.query.runtime,
     poster:req.query.poster,
@@ -91,7 +89,8 @@ app.get("/films/edit/:id", (req, res) => {
 ---------------------------PAGINA DE FORMULARIO--------------------------
 ---------------------------------------------------------------------- */
 app.get("/formulario", (req, res) => {
-  res.status(200).render("Form", { title: "Formulario" });
+  res.status(200).render("Form", { title: "Formulario",
+action: "Crear Película" });
 });
 
 app.post("/exito", (req, res) => {
